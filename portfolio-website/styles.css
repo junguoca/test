@@ -1,0 +1,292 @@
+/* CSS 重置样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+/* 链接样式重置 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 列表样式重置 */
+ul, ol {
+    list-style: none;
+}
+
+/* 图片样式重置 */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 按钮样式重置 */
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* 输入框样式重置 */
+input, textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Header 样式 */
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-menu li a {
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: #3498db;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Hero 区域 */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 8rem 2rem;
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background-color: #fff;
+    color: #667eea;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* 通用 section 样式 */
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* About 区域 */
+.about {
+    background-color: #f8f9fa;
+}
+
+.about p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Projects 区域 */
+.projects {
+    background-color: #fff;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.project-card h3 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.project-card p {
+    color: #666;
+}
+
+/* Contact 区域 */
+.contact {
+    background-color: #f8f9fa;
+}
+
+#contactForm {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#contactForm input,
+#contactForm textarea {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+#contactForm button {
+    background-color: #667eea;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+#contactForm button:hover {
+    background-color: #5568d3;
+}
+
+/* Footer 样式 */
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: #2c3e50;
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 0 1rem;
+    }
+
+    .hero {
+        padding: 5rem 1rem;
+    }
+
+    section {
+        padding: 3rem 1rem;
+    }
+}
+
