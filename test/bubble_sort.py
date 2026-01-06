@@ -62,7 +62,7 @@ def bubble_sort_descending(arr):
 
 if __name__ == "__main__":
     # 测试数组
-    test_cases = [[6, 3, 34, 21, 98, 54, 12, 64, 11, 22,12]]
+    test_cases = [[6, 3, 34, 21, 98, 54, 12, 64, 11, 22,12，34]]
     
     print("冒泡排序测试（升序）：")
     print("=" * 50)
