@@ -1,23 +1,14 @@
-"""
-冒泡排序算法实现
-Bubble Sort Algorithm Implementation
-"""
-
-
 def bubble_sort(arr):
     """
-    冒泡排序函数
+    冒泡排序算法
     
     参数:
         arr: 待排序的列表
     
     返回:
-        排序后的列表（原地排序，也会修改原列表）
-    
-    时间复杂度: O(n²)
-    空间复杂度: O(1)
+        排序后的列表
     """
-    # 创建列表的副本，避免修改原列表
+    # 复制列表，避免修改原列表
     arr = arr.copy()
     n = len(arr)
     
@@ -28,6 +19,7 @@ def bubble_sort(arr):
         
         # 内层循环进行相邻元素比较和交换
         # 每轮排序后，最大的元素会"冒泡"到末尾
+        # 所以每轮可以减少一次比较
         for j in range(0, n - i - 1):
             # 如果前一个元素大于后一个元素，则交换
             if arr[j] > arr[j + 1]:
@@ -41,75 +33,54 @@ def bubble_sort(arr):
     return arr
 
 
-def bubble_sort_inplace(arr):
+def bubble_sort_descending(arr):
     """
-    原地冒泡排序（直接修改原列表）
+    降序冒泡排序
     
     参数:
-        arr: 待排序的列表（会被直接修改）
+        arr: 待排序的列表
     
     返回:
-        None（原地排序）
+        降序排序后的列表
     """
+    arr = arr.copy()
     n = len(arr)
     
     for i in range(n):
         swapped = False
-        
         for j in range(0, n - i - 1):
-            if arr[j] > arr[j + 1]:
+            # 降序：如果前一个元素小于后一个元素，则交换
+            if arr[j] < arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 swapped = True
         
         if not swapped:
             break
+    
+    return arr
 
 
 if __name__ == "__main__":
-    # 主要测试用例：用户指定的数组
-    user_array = [19, 21, 12, 12, 45, 24, 223]
+    # 测试数组
+    test_cases = [[6, 3, 34, 21, 98, 54, 12, 64, 11, 22,12]]
     
-    print("冒泡排序测试结果:")
+    print("冒泡排序测试（升序）：")
     print("=" * 50)
-    
-    # 测试用户指定的数组
-    original = user_array.copy()
-    sorted_arr = bubble_sort(user_array)
-    
-    print("主要测试用例:")
-    print(f"  原数组: {original}")
-    print(f"  排序后: {sorted_arr}")
-    print()
-    
-    # 验证排序结果
-    expected = sorted(original)
-    if sorted_arr == expected:
-        print("✓ 排序结果正确！")
-    else:
-        print("✗ 排序结果有误！")
-        print(f"  期望结果: {expected}")
-    print()
-    
-    # 其他测试用例
-    test_cases = [
-        [64, 34, 25, 12, 22, 11, 90],
-        [5, 2, 8, 1, 9],
-        [1],
-        [],
-        [3, 3, 3, 3],
-        [9, 8, 7, 6, 5, 4, 3, 2, 1],
-        [1, 2, 3, 4, 5]
-    ]
-    
-    print("其他测试用例:")
-    print("-" * 50)
-    
     for i, test_arr in enumerate(test_cases, 1):
-        original = test_arr.copy()
-        sorted_arr = bubble_sort(test_arr)
-        
-        print(f"测试 {i}:")
-        print(f"  原数组: {original}")
-        print(f"  排序后: {sorted_arr}")
-        print()
+        if test_arr:  # 跳过空列表
+            sorted_arr = bubble_sort(test_arr)
+            print(f"测试 {i}: {test_arr} -> {sorted_arr}")
+        else:
+            sorted_arr = bubble_sort(test_arr)
+            print(f"测试 {i}: [] -> {sorted_arr}")
+    
+    print("\n冒泡排序测试（降序）：")
+    print("=" * 50)
+    for i, test_arr in enumerate(test_cases, 1):
+        if test_arr:  # 跳过空列表
+            sorted_arr = bubble_sort_descending(test_arr)
+            print(f"测试 {i}: {test_arr} -> {sorted_arr}")
+        else:
+            sorted_arr = bubble_sort_descending(test_arr)
+            print(f"测试 {i}: [] -> {sorted_arr}")
 
